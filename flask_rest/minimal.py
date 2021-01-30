@@ -1,14 +1,10 @@
 from flask import Flask, request
 from flask_restful import Resource, Api
+from models.model0 import Classifier
 
 app = Flask(__name__)
 api = Api(app)
 
-class HelloWorld(Resource):
-    def get(self):
-        return {"Hello" : "World"}
-
-todos = {}
 
 class ToDoSimple(Resource):
     def get(self, todo_id):
@@ -18,12 +14,12 @@ class ToDoSimple(Resource):
         todos[todo_id] = request.form['data']
         return {todo_id: todos[todo_id]}
 
+api.add_resource(ToDoSimple, '/<string:todo_id>')
 ## Needed to updated according to models/model0.py
+model = Classifier()
 class BugDetectorModel(Resource):
     def get(self, img):
         return {classname : "<Bug-Name>", bbox :{}}
-
-api.add_resource(ToDoSimple, '/<string:todo_id>')
 
 if __name__ == '__main__':
     app.run(debug=True)

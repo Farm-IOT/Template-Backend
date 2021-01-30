@@ -3,4 +3,3 @@
 - [ ] A valid Class that is able to call a ML file.
 - [ ] Able to recieve an image.
 - [ ] Returns a response.
-- [ ] Returns an image with borders.

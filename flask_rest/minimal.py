@@ -18,6 +18,11 @@ class ToDoSimple(Resource):
         todos[todo_id] = request.form['data']
         return {todo_id: todos[todo_id]}
 
+## Needed to updated according to models/model0.py
+class BugDetectorModel(Resource):
+    def get(self, img):
+        return {classname : "<Bug-Name>", bbox :{}}
+
 api.add_resource(ToDoSimple, '/<string:todo_id>')
 
 if __name__ == '__main__':

@@ -6,8 +6,8 @@ class Classifier():
     def train(self):
         pass
     def predict(self, img):
-        return [
-            {
+        # read from image and pass through model
+        return {
                 "bug_name" : "huscea",
                 "bbox":{
                     "xmin" : 0.1,
@@ -16,4 +16,3 @@ class Classifier():
                     "ymin" : 0.3
                 }
             }
-        ]

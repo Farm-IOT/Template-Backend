@@ -5,15 +5,12 @@ class Classifier():
         pass
     def train(self):
         pass
-    def predict(self, img):
+    def predict(self, filename):
         # read from image and pass through model
         return [{
                 "type" : "bug",
                 "name" : "huscea",
-                "bbox"  : {
-                    "xmin" : 0.1,
-                    "xmax" : 0.34,
-                    "ymin" : -0.5,
-                    "ymin" : 0.3
-                }
+                "bbox" : ( (0, 0),
+                           (100, 125) 
+                        )
             }]

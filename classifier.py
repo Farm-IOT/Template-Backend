@@ -1,5 +1,5 @@
 import os
-from flask import Flask, request, flash, redirect
+from flask import Flask, request, flash, redirect, send_file
 from werkzeug.utils import secure_filename
 from models.model0 import Classifier
 from img_func import save_bbox
@@ -7,7 +7,6 @@ from img_func import save_bbox
 app = Flask(__name__)
 
 # Set up the directory where the files are to stored
-# The folder has be set up during the project set-up
 UPLOAD_FOLDER = './images'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
@@ -36,10 +35,10 @@ def upload_file():
         results = model.predict(filename)
         save_bbox(filename, results)
         # os.remove(filename)
-        return results[0]
+        return send_file(filename, as_attachment=True)
 
 
-# check the post api : curl -v -X POST -H "Content-Type: multipart/form-data" -F "file=@<file location>" http://localhost:5000
+# check the post api : curl -v -X POST -H "Content-Type: multipart/form-data" -F "file=@<file location>" http://localhost:5000 -o <output file>
 # replace <file location> with the image name
 
 if __name__ == '__main__':

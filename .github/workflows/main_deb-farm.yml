@@ -32,4 +32,4 @@ jobs:
       with:
         app-name: 'deb-farm'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_7dd69dabc1724e949f97f1dec53eb623 }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_e1e67f2dc2844bafbf6f0c4e87ea4d00 }}
